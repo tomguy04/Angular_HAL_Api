@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    color: #20285b;
+}
+
+#wrapper{
+    width: 960px;
+    margin: 0px auto;
+    border: 2px solid lightgrey;
+}
+
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+    background-color :#FFFFFF;
+    
+}

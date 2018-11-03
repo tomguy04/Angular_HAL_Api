@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TileService } from '../tile.service';
+import { Itinerary } from '../models/itinerary';
 
 @Component({
   selector: 'app-tiles',
@@ -7,7 +8,7 @@ import { TileService } from '../tile.service';
   styleUrls: ['./tiles.component.css']
 })
 export class TilesComponent implements OnInit {
-  tiles ={};
+  tiles : Itinerary[]=[];
   constructor(private tileService : TileService) { }
 
   ngOnInit() {
@@ -19,7 +20,8 @@ export class TilesComponent implements OnInit {
     this.tileService.getTiles().subscribe(
           tiles => {
             this.tiles = tiles
-            console.log(this.tiles);
+            console.log(`***************${this.tiles}`);
+
           }
     );
   }
