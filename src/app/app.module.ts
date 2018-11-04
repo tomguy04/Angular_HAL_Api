@@ -9,16 +9,23 @@ import { AppComponent } from './app.component';
 import { TilesComponent } from './tiles/tiles.component';
 import { MapComponent } from './map/map.component';
 
+import { NgxContentLoadingModule } from 'ngx-content-loading';
+import { AppRoutingModule } from './app-routing.module';
+import { ItineraryComponent } from './itinerary/itinerary.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     TilesComponent,
     MapComponent,
+    ItineraryComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    JsonpModule
+    JsonpModule,
+    NgxContentLoadingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

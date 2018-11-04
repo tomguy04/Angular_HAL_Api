@@ -19,7 +19,9 @@
     <p>Description: {{voyage.description}}</p>
     --> From {{voyage.selectedStateRoomPrice}} <--
     -per person <b>{{voyage.selectedStateRoomName}}</b>-
+    <button><a routerLink="/itinerary/{{voyage.id}}">View Itinerary</a></button>
     <app-map></app-map>
+    <p>Itinerary ID: {{voyage.id}}</p>
     <p>DEPARTURE DATE: {{voyage.dateDepart}}</p>
     <p>SHIP: {{voyage.shipDisplayName}}</p>
     <p>DEPARTS: {{voyage.disembarkPortName}}</p>

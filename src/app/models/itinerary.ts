@@ -1,5 +1,6 @@
 export class Itinerary{
     constructor(
+        public id:string ='',
         public description:string,
         public dateDepart: Date,
         public shipDisplayName : string = '',
