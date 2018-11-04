@@ -1,4 +1,7 @@
 
+#stateRooms{
+    display: inline-block;
+}
 
 ul.topnav {
     list-style-type: none;

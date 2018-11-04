@@ -7,11 +7,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TilesComponent } from './tiles/tiles.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TilesComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

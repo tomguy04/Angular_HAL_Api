@@ -26,6 +26,7 @@ export class TileService {
   constructor(private jsonp: Jsonp, private http : HttpClient) { }
   itineraries : Itinerary[] = [];
   itineraryData = [];
+  stateRooms = [];
 
   /** GET tiles from the server */
   // getTiles ():Observable<any> {
@@ -33,27 +34,23 @@ export class TileService {
     return this.http.get<any>(this.tileURL)
     .pipe(
       map((val:any)=>{
-        console.log(val.data[0].attributes.itineraries)
+        console.log(val.data[0])
         this.itineraryData = val.data[0].attributes.itineraries;
 
         for (let i = 0; i < this.itineraryData.length; i++){
-          console.log(this.itineraryData[i].voyages[0])
-          // this.myItineraries.push()
-          // console.log(this.itineraryData[i].voyages[0].itinerary.description)
-          // console.log(this.itineraryData[i].voyages[0].dateDepart)
-          // console.log(this.itineraryData[i].voyages[0].ship.displayName)
-          // console.log(this.itineraryData[i].voyages[0].disembarkPort.portName)
-          // console.log(this.itineraryData[i].voyages[0].embarkPort.portName)
-          // console.log(this.itineraryData[i].voyages[0].ship.displayName)
-          // console.log(this.itineraryData[i].voyages[0].lowestVoyagePrice)
+          this.stateRooms = JSON.parse(JSON.stringify( this.itineraryData[i].voyages[0].stateRooms));
+          console.log(this.stateRooms);
           const itineraryObj = new Itinerary(
             this.itineraryData[i].voyages[0].itinerary.description,
             this.itineraryData[i].voyages[0].dateDepart,
             this.itineraryData[i].voyages[0].ship.displayName,
             this.itineraryData[i].voyages[0].disembarkPort.portName,
             this.itineraryData[i].voyages[0].embarkPort.portName,
+            this.itineraryData[i].voyages[0].stateRooms = JSON.parse(JSON.stringify( this.itineraryData[i].voyages[0].stateRooms)),
+            this.itineraryData[i].voyages[0].TFPE.price,
+            this.itineraryData[i].voyages[0].stateRooms[0]._id,
+            this.itineraryData[i].voyages[0].stateRooms[0].priceBlocks[0].prices[0].fare
           );
-          console.log(itineraryObj);
           this.itineraries.push(itineraryObj);
         }
         return (this.itineraries);

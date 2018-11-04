@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
 </head>
 <body>
   <ul class="topnav">
@@ -10,10 +13,22 @@
     <li><a href="#contact">Contact</a></li>
     <li class="right"><a href="#about">About</a></li>
   </ul>
+
   <div *ngFor = 'let voyage of tiles'>
     --------------------------------<br>
-    {{voyage.description}}
+    <p>Description: {{voyage.description}}</p>
+    --> From {{voyage.selectedStateRoomPrice}} <--
+    -per person <b>{{voyage.selectedStateRoomName}}</b>-
+    <app-map></app-map>
+    <p>DEPARTURE DATE: {{voyage.dateDepart}}</p>
+    <p>SHIP: {{voyage.shipDisplayName}}</p>
+    <p>DEPARTS: {{voyage.disembarkPortName}}</p>
+    <p>ARRIVES: {{voyage.embarkPortName}}</p>
+    <p>TPFE: ${{voyage.tfpe}}</p>
+    <p>STATEROOMS:</p>
+      <div id = 'stateRooms' *ngFor = 'let room of voyage.stateRooms'>
+        {{ room._id }} <button (click) = 'onSelect(room,voyage)'>{{ room?.priceBlocks[0]?.prices[0]?.fare }}</button>
+      </div>
   </div>
 </body>
 </html>
-

@@ -9,6 +9,9 @@ import { Itinerary } from '../models/itinerary';
 })
 export class TilesComponent implements OnInit {
   tiles : Itinerary[]=[];
+  selectedStateRoomName : String = '';
+  selectedStateRoomPrice : Number = 0;
+
   constructor(private tileService : TileService) { }
 
   ngOnInit() {
@@ -20,9 +23,14 @@ export class TilesComponent implements OnInit {
     this.tileService.getTiles().subscribe(
           tiles => {
             this.tiles = tiles
-            console.log(`***************${this.tiles}`);
-
+            // console.log(`***************${this.tiles}`);
           }
     );
+  }
+
+  onSelect(room,voyage){
+    console.log(room);
+    voyage.selectedStateRoomPrice = room.priceBlocks[0].prices[0].fare;
+    voyage.selectedStateRoomName = room._id;
   }
 }
