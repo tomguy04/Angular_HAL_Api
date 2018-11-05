@@ -1,5 +1,18 @@
-<p>
-  itinerary works!
-  {{itinerary}}
-  <button (click)="goBack()">go back</button>
-</p>
+
+<button (click)="goBack()">go back</button>
+  <p>Description: {{itinerary}}</p>
+  <!-- From {{itinerary.selectedStateRoomPrice}}
+  per person <b>{{voyage.selectedStateRoomName}}</b> -->
+  <app-map></app-map>
+  <p>Itinerary ID: {{itinerary.id}}</p>
+  <p>DEPARTURE DATE: {{itinerary.dateDepart}}</p>
+  <p>SHIP: {{itinerary.shipDisplayName}}</p>
+  <p>DEPARTS: {{itinerary.disembarkPortName}}</p>
+  <p>ARRIVES: {{itinerary.embarkPortName}}</p>
+  <p>TPFE: ${{itinerary.tfpe}}</p>
+  <p>STATEROOMS:</p>
+  <div id = 'stateRooms' *ngFor = 'let room of itinerary.stateRooms'>
+    {{ room._id }} <button (click) = 'onSelect(room,itinerary)'>{{ room?.priceBlocks[0]?.prices[0]?.fare }}</button>
+    
+  </div>
+  

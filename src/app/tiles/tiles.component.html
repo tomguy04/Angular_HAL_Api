@@ -7,30 +7,28 @@
     <title>{{ title }}</title>
 </head>
 <body>
-  <ul class="topnav">
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#news">News</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li class="right"><a href="#about">About</a></li>
-  </ul>
 
-  <div *ngFor = 'let voyage of tiles'>
-    --------------------------------<br>
-    <p>Description: {{voyage.description}}</p>
-    --> From {{voyage.selectedStateRoomPrice}} <--
-    -per person <b>{{voyage.selectedStateRoomName}}</b>-
-    <button><a routerLink="/itinerary/{{voyage.id}}">View Itinerary</a></button>
-    <app-map></app-map>
-    <p>Itinerary ID: {{voyage.id}}</p>
-    <p>DEPARTURE DATE: {{voyage.dateDepart}}</p>
-    <p>SHIP: {{voyage.shipDisplayName}}</p>
-    <p>DEPARTS: {{voyage.disembarkPortName}}</p>
-    <p>ARRIVES: {{voyage.embarkPortName}}</p>
-    <p>TPFE: ${{voyage.tfpe}}</p>
-    <p>STATEROOMS:</p>
-      <div id = 'stateRooms' *ngFor = 'let room of voyage.stateRooms'>
-        {{ room._id }} <button (click) = 'onSelect(room,voyage)'>{{ room?.priceBlocks[0]?.prices[0]?.fare }}</button>
-      </div>
+
+  <div  *ngFor = 'let voyage of tiles'>
+    <div id = 'header'>Description: {{voyage.description}}</div>
+    <div id = 'tileContents'>
+      From {{voyage.selectedStateRoomPrice}} 
+      per person <b>{{voyage.selectedStateRoomName}}</b>-
+      <button><a routerLink="/itinerary/{{voyage.id}}">View Itinerary</a></button>
+      <app-map></app-map>
+      <p>Itinerary ID: {{voyage.id}}</p>
+      <p>DEPARTURE DATE: {{voyage.dateDepart |date}}</p>
+      <p>SHIP: {{voyage.shipDisplayName}}</p>
+      <p>DEPARTS: {{voyage.disembarkPortName}}</p>
+      <p>ARRIVES: {{voyage.embarkPortName}}</p>
+      <p>TPFE: ${{voyage.tfpe}}</p>
+        <div id ='stateRoomsContainer'>
+            <div id = 'stateRooms' *ngFor = 'let room of voyage.stateRooms'>
+              {{ room._id }} <button (click) = 'onSelect(room,voyage)'>{{ room?.priceBlocks[0]?.prices[0]?.fare }}</button>
+            </div>
+            <button><a routerLink="/itinerary/{{voyage.id}}">Book Now</a></button>
+        </div>
+    </div>
   </div>
 </body>
 </html>

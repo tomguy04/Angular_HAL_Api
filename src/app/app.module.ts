@@ -12,6 +12,7 @@ import { MapComponent } from './map/map.component';
 import { NgxContentLoadingModule } from 'ngx-content-loading';
 import { AppRoutingModule } from './app-routing.module';
 import { ItineraryComponent } from './itinerary/itinerary.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ItineraryComponent } from './itinerary/itinerary.component';
     TilesComponent,
     MapComponent,
     ItineraryComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

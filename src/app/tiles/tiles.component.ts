@@ -12,10 +12,12 @@ export class TilesComponent implements OnInit {
   selectedStateRoomName : String = '';
   selectedStateRoomPrice : Number = 0;
 
+
   constructor(private tileService : TileService) { }
 
   ngOnInit() {
     this.getTiles();
+   
   }
 
   getTiles(){
@@ -33,4 +35,7 @@ export class TilesComponent implements OnInit {
     voyage.selectedStateRoomPrice = room.priceBlocks[0].prices[0].fare;
     voyage.selectedStateRoomName = room._id;
   }
+
+
+  
 }
