@@ -1,0 +1,15 @@
+#taxes{
+    font-size:10px;
+    padding:10px 0px;
+}
+
+#from{
+    font-size:20px;
+}
+
+button{
+    padding: 5px 10px;
+    margin-right: 5px;
+    vertical-align: top;
+    text-align: center;
+}

@@ -1,18 +1,41 @@
-
-<button (click)="goBack()">go back</button>
-  <p>Description: {{itinerary}}</p>
-  <!-- From {{itinerary.selectedStateRoomPrice}}
-  per person <b>{{voyage.selectedStateRoomName}}</b> -->
-  <app-map></app-map>
-  <p>Itinerary ID: {{itinerary.id}}</p>
-  <p>DEPARTURE DATE: {{itinerary.dateDepart}}</p>
-  <p>SHIP: {{itinerary.shipDisplayName}}</p>
-  <p>DEPARTS: {{itinerary.disembarkPortName}}</p>
-  <p>ARRIVES: {{itinerary.embarkPortName}}</p>
-  <p>TPFE: ${{itinerary.tfpe}}</p>
-  <p>STATEROOMS:</p>
-  <div id = 'stateRooms' *ngFor = 'let room of itinerary.stateRooms'>
-    {{ room._id }} <button (click) = 'onSelect(room,itinerary)'>{{ room?.priceBlocks[0]?.prices[0]?.fare }}</button>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+</head>
+<body>
+<div id = 'header'>Description: {{itinerary.description}}</div>
+<div id = 'tileContents'>
+  <div id = 'upperTile'>
+    <div id = 'map'>
+      <app-map></app-map>
+    </div>
+    <div id = 'depart'>
+      <p>DEPARTURE DATE: {{itinerary.dateDepart | date}}</p>
+      <p>SHIP: {{itinerary.shipDisplayName}}</p>
+      <p>DEPARTS: {{itinerary.disembarkPortName}}</p>
+      <p>ARRIVES: {{itinerary.embarkPortName}}</p>
+    </div>
+    <div id = 'price'>
+      From <div id = 'from'>US${{itinerary.selectedStateRoomPrice}}</div>
+      per person <b>{{itinerary.selectedStateRoomName}}</b>
+      <div id = 'taxes'>*Plus Taxes, Fees and Port Expenses: ${{itinerary.tfpe}}</div>
+      <button (click)="goBack()">go back</button>
+    </div>
   </div>
-  
+    <div id ='stateRoomsContainer'>
+      <div id ='rooms'>
+        <div id = 'suites' *ngFor = 'let room of itinerary.stateRooms'>
+          {{ room._id }}<br> <button (click) = 'onSelect(room,itinerary)'>$US{{ room?.priceBlocks[0]?.prices[0]?.fare }}*</button>
+        </div>
+      </div>
+      <div id='book'>
+          <button (click)="goBack()">go back</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

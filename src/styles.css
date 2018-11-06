@@ -16,3 +16,91 @@ body{
     background-color :#FFFFFF;
     
 }
+
+#stateRoomsContainer{
+    padding: 5px;
+    border: 2px solid gray;
+}
+
+#stateRoomsContainer button{
+    margin-top: 20px;
+}
+
+#stateRoomBlock{
+    display: inline-block;
+}
+
+#suites{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-right: 10px;
+}
+
+#book{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#header {
+    overflow: hidden;
+    padding: 20px 10px;
+    background-color: #2B386F;
+    color: white;
+    margin-top: 10px;
+  }
+
+#tileContents{
+    padding:10px;
+}
+
+#upperTile{
+    background-color: lightslategray;
+}
+
+#map{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#depart{
+    display: inline-block;
+    vertical-align: top;
+    padding:10px;
+}
+
+#price{
+    display: inline-block;
+    vertical-align: top;
+    padding:10px;
+}
+
+
+.button {
+  border: none;
+  padding: 14px;
+  color:  #2B386F;
+  margin: 0 10px;
+  background-color: #fff;
+  border: 2px solid #2B386F;
+}
+.active {
+  background-color: #2B386F;
+  color: #fff
+}
+
+#rooms{
+    display:inline-block;
+    vertical-align: top;
+    text-align: center; 
+}
+
+#book{
+    display:inline-block;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+#suites button{
+    width: 100%;
+}

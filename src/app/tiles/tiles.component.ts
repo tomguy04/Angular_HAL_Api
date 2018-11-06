@@ -9,23 +9,17 @@ import { Itinerary } from '../models/itinerary';
 })
 export class TilesComponent implements OnInit {
   tiles : Itinerary[]=[];
-  selectedStateRoomName : String = '';
-  selectedStateRoomPrice : Number = 0;
-
 
   constructor(private tileService : TileService) { }
 
   ngOnInit() {
     this.getTiles();
-   
   }
 
   getTiles(){
-    //this.tileService.getTiles();
     this.tileService.getTiles().subscribe(
           tiles => {
             this.tiles = tiles
-            // console.log(`***************${this.tiles}`);
           }
     );
   }
@@ -35,6 +29,7 @@ export class TilesComponent implements OnInit {
     voyage.selectedStateRoomPrice = room.priceBlocks[0].prices[0].fare;
     voyage.selectedStateRoomName = room._id;
   }
+
 
 
   
